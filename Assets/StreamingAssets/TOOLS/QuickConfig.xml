@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="gb2312"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <LocalIP>192.168.80.175</LocalIP>
+  <LocalPort>8001</LocalPort>
+  <RemoteIP>122.114.44.169</RemoteIP>
+  <RemotePort>8001</RemotePort>
+  <PngSharePath>\\127.0.0.1\ShareFiles\</PngSharePath>
+  <JKSharePath>D:\ShareFiles\</JKSharePath>
+  <Debug>true</Debug>
+  <ShowCursor>true</ShowCursor>
+  <UnityPatcher>false</UnityPatcher>
+  <ShowStartImage>false</ShowStartImage>
+  <ScreenControl>false</ScreenControl>
+  <ScreenWidth>1920</ScreenWidth>
+  <ScreenHeight>1080</ScreenHeight>
+</Root>
