@@ -16,15 +16,14 @@ public class BlendIndexMapping
 public class BlendShapeMapping : ScriptableObject
 {
     [HideInInspector]
-    public SkinnedMeshRenderer Original, Target,Tonguo51;
+    public SkinnedMeshRenderer Original, Target;
 
     public List<BlendIndexMapping> IndexMapping;
 
-    public void InitMapIndex(SkinnedMeshRenderer Original, SkinnedMeshRenderer Target, SkinnedMeshRenderer Tonguo51)
+    public void InitMapIndex(SkinnedMeshRenderer Original, SkinnedMeshRenderer Target)
     {
         this.Original = Original;
         this.Target = Target;
-        this.Tonguo51 = Tonguo51;
         for (int i = 0; i < IndexMapping.Count; i++)
         {
 
@@ -32,9 +31,6 @@ public class BlendShapeMapping : ScriptableObject
 
             int Index = Target.sharedMesh.GetBlendShapeIndex(IndexMapping[i].To);
             IndexMapping[i].IdTo = Index;
-
-
-
         }
 
     }

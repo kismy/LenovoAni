@@ -1,0 +1,11 @@
+/Library
+/.vs
+/Logs
+/obj
+/.vsconfig
+/Assembly-CSharp.csproj
+/Assembly-CSharp-Editor.csproj
+/Dracodec.csproj
+/LenovoAni_git.sln
+/Siccity.GLTFUtility.csproj
+/Siccity.GLTFUtility.Editor.csproj

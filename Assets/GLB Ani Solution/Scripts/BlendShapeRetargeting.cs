@@ -7,10 +7,9 @@ using System.Text;
 public class BlendShapeRetargeting : MonoBehaviour
 {
     [SerializeField] bool UseLiveLinkFace = false;
-    [SerializeField] SkinnedMeshRenderer Original0_51;
+    [SerializeField] SkinnedMeshRenderer Original;
 
-    [SerializeField] SkinnedMeshRenderer Face0_50;
-    [SerializeField] SkinnedMeshRenderer Tongue51;
+    [SerializeField] SkinnedMeshRenderer[] Targets;
     [SerializeField] BlendShapeMapping mapping;
 
 
@@ -19,19 +18,21 @@ public class BlendShapeRetargeting : MonoBehaviour
     byte[] buffer;
     private void Start()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 35;
         //udp = new Socket(AddressFamily.InterNetwork,SocketType.Dgram, ProtocolType.Udp);
         //udp.Bind(new IPEndPoint(IPAddress.Parse("192.168.1.171"),11111));
 
         //buffer = new byte[1024];
 
-        mapping.InitMapIndex(Original0_51, Face0_50, Tongue51);
+        //mapping.InitMapIndex(Original, Targets[0]);
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Original0_51 != null)
+        if (Original != null)
         {
             //int length = udp.Receive(buffer);//接收数据报
             if (UseLiveLinkFace)
@@ -45,14 +46,12 @@ public class BlendShapeRetargeting : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < 52; i++)
+                for (int i = 0; i < Original.sharedMesh.blendShapeCount; i++)
                 {
-                    float weight = Original0_51.GetBlendShapeWeight(mapping.IndexMapping[i].IdFrom);
-                    if (mapping.IndexMapping[i].IdTo != -1)
-                        Face0_50.SetBlendShapeWeight(mapping.IndexMapping[i].IdTo, weight);
-                    else
+                    float weight = Original.GetBlendShapeWeight(i)/100f;
+                    foreach (var target in Targets)
                     {
-                        Debug.Log(mapping.IndexMapping[i].To +" : -1");
+                        target.SetBlendShapeWeight(i, weight);
                     }
                 }
             }
