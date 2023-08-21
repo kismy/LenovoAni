@@ -6,6 +6,7 @@ using UnityEngine;
 using System.Text;
 public class BlendShapeRetargeting : MonoBehaviour
 {
+    [SerializeField] Animator animator;
     [SerializeField] bool UseLiveLinkFace = false;
     [SerializeField] SkinnedMeshRenderer Original;
 
@@ -46,7 +47,7 @@ public class BlendShapeRetargeting : MonoBehaviour
             }
             else
             {
-                for (int i = 0; i < Original.sharedMesh.blendShapeCount; i++)
+                for (int i = 0; i < Targets[0].sharedMesh.blendShapeCount; i++)
                 {
                     float weight = Original.GetBlendShapeWeight(i)/100f;
                     foreach (var target in Targets)
@@ -55,6 +56,36 @@ public class BlendShapeRetargeting : MonoBehaviour
                     }
                 }
             }
+
         }
+        if (Input.GetKeyDown(KeyCode.F1))
+            LoadAni("IdleOfSitDown");
+        else if (Input.GetKeyDown(KeyCode.F2))
+            LoadAni("ThumbsUp");
+        else if (Input.GetKeyDown(KeyCode.F3))
+            LoadAni("HandClap");
+        else if (Input.GetKeyDown(KeyCode.F4))
+            LoadAni("Pray");
+        else if (Input.GetKeyDown(KeyCode.F5))
+            LoadAni("Sign");
+        else if (Input.GetKeyDown(KeyCode.F6))
+            LoadAni("Cheer");
+        else if (Input.GetKeyDown(KeyCode.F7))
+            LoadAni("OK");
+        else if (Input.GetKeyDown(KeyCode.F8))
+            LoadAni("Wave");
+        else if (Input.GetKeyDown(KeyCode.F9))
+            LoadAni("Think");
+        else if (Input.GetKeyDown(KeyCode.F10))
+            LoadAni("Yean");
+        else if (Input.GetKeyDown(KeyCode.F11))
+            LoadAni("Yes");
+        else if (Input.GetKeyDown(KeyCode.F12))
+            LoadAni("ThumbsDown");
+    }
+
+    private void LoadAni(string aniState)
+    {
+        animator.SetTrigger("On" + aniState);
     }
 }
