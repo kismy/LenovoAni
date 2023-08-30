@@ -178,13 +178,13 @@ public class SkeletonModify : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.F2))
             LoadAni("ThumbsUp");
         else if (Input.GetKeyDown(KeyCode.F3))
-            LoadAni("HandClap");
+            LoadAni("HandClap"); 
         else if (Input.GetKeyDown(KeyCode.F4))
-            LoadAni("Pray");
-        else if (Input.GetKeyDown(KeyCode.F5))
             LoadAni("Sign");
-        else if (Input.GetKeyDown(KeyCode.F6))
+        else if (Input.GetKeyDown(KeyCode.F5))
             LoadAni("Cheer");
+        else if (Input.GetKeyDown(KeyCode.F6))
+            LoadAni("Pray");
         else if (Input.GetKeyDown(KeyCode.F7))
             LoadAni("OK");
         else if (Input.GetKeyDown(KeyCode.F8))
@@ -197,7 +197,6 @@ public class SkeletonModify : MonoBehaviour
             LoadAni("Yes");
         else if (Input.GetKeyDown(KeyCode.F12))
             LoadAni("ThumbsDown");
-
     }
 
     private void LoadAni(string aniState)

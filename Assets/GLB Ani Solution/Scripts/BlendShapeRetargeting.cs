@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using System.Net.Sockets;
 using UnityEngine;
 using System.Text;
+using System.Linq;
+using System.Collections;
+
 public class BlendShapeRetargeting : MonoBehaviour
 {
     [SerializeField] Animator animator;
@@ -11,12 +14,23 @@ public class BlendShapeRetargeting : MonoBehaviour
     [SerializeField] SkinnedMeshRenderer Original;
 
     [SerializeField] SkinnedMeshRenderer[] Targets;
-    [SerializeField] BlendShapeMapping mapping;
 
-
+    [Serializable]
+    private class FaceAniTimeDelay
+    {
+        public string Anistate;
+        public float Delay = 0;
+    }
+    [SerializeField] List<FaceAniTimeDelay> faceAniTimeDelay;
 
     Socket udp;
     byte[] buffer;
+    public void Init(Dictionary<EFaceType, SkinnedMeshRenderer> dic)
+    {
+        if (dic == null)
+            return;
+        Targets = dic.Values.ToArray();    
+    }
     private void Start()
     {
         QualitySettings.vSyncCount = 0;
@@ -27,10 +41,7 @@ public class BlendShapeRetargeting : MonoBehaviour
         //buffer = new byte[1024];
 
         //mapping.InitMapIndex(Original, Targets[0]);
-
     }
-
-    // Update is called once per frame
     void Update()
     {
         if (Original != null)
@@ -47,6 +58,8 @@ public class BlendShapeRetargeting : MonoBehaviour
             }
             else
             {
+                if (Targets == null || Targets.Length <= 0)
+                    return;
                 for (int i = 0; i < Targets[0].sharedMesh.blendShapeCount; i++)
                 {
                     float weight = Original.GetBlendShapeWeight(i)/100f;
@@ -65,11 +78,11 @@ public class BlendShapeRetargeting : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.F3))
             LoadAni("HandClap");
         else if (Input.GetKeyDown(KeyCode.F4))
-            LoadAni("Pray");
-        else if (Input.GetKeyDown(KeyCode.F5))
             LoadAni("Sign");
-        else if (Input.GetKeyDown(KeyCode.F6))
+        else if (Input.GetKeyDown(KeyCode.F5))
             LoadAni("Cheer");
+        else if (Input.GetKeyDown(KeyCode.F6))
+            LoadAni("Pray");
         else if (Input.GetKeyDown(KeyCode.F7))
             LoadAni("OK");
         else if (Input.GetKeyDown(KeyCode.F8))
@@ -82,10 +95,28 @@ public class BlendShapeRetargeting : MonoBehaviour
             LoadAni("Yes");
         else if (Input.GetKeyDown(KeyCode.F12))
             LoadAni("ThumbsDown");
+
+        if (Input.GetKeyDown(KeyCode.Space))
+            Init(RoleManager.instance.SkinDic);
     }
 
     private void LoadAni(string aniState)
     {
-        animator.SetTrigger("On" + aniState);
+        StartCoroutine(StartAni(aniState));
+    }
+
+    IEnumerator StartAni(string aniState)
+    {
+        FaceAniTimeDelay targetItem = faceAniTimeDelay.FirstOrDefault(item => item.Anistate == aniState);
+
+        if (targetItem != null)
+        {
+            yield return new WaitForSeconds(targetItem.Delay);
+
+            animator.SetTrigger("On" + aniState);
+
+        }
+
+
     }
 }
