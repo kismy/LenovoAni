@@ -9,7 +9,7 @@ using System.Linq;
 
 public class SkeletonModify : MonoBehaviour
 {
-    [SerializeField] string currentAniState= "IdleOfSitDown";
+    [SerializeField] string currentAniState;
     [SerializeField] Transform joint;
     [SerializeField] Text text;
     [SerializeField]
@@ -36,7 +36,6 @@ public class SkeletonModify : MonoBehaviour
         CreateOffsetJoints_OnRuntime();
         animator.SetTrigger("OnIdleOfSitDown");
         text.text = "µ±Ç°¶¯»­£ºIdleOfSitDown";
-        currentAniState = "IdleOfSitDown";
         LoadCurAnimationModify("IdleOfSitDown");
     }
 
@@ -88,6 +87,8 @@ public class SkeletonModify : MonoBehaviour
     {
         if (stateName == null)
             stateName = currentAniState;
+        else if (stateName == currentAniState)
+            return;
         SkeletonModifyData tempData = LoadJson(stateName);
         if (tempData == null)
         {

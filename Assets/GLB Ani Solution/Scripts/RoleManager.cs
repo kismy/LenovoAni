@@ -21,7 +21,8 @@ public class RoleManager : MonoBehaviour
     void Start()
     {
         instance = this;
-        LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath+ "/../roleModels/6476e63cc16b82b1e6b9760f.glb", OnFinishAsync);
+        //LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath+ "/../roleModels/6476e63cc16b82b1e6b9760f.glb", OnFinishAsync);
+        LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath+ "/../roleModels/64d495b4651a0d35000406bc.glb", OnFinishAsync);
     }
 
     /// <summary>
