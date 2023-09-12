@@ -13,7 +13,7 @@ public class DynamicAvatar : MonoBehaviour
     void Start()
     {
         if(autoInit)
-            Init(avatarRoot, animator);
+            Init(avatarRoot, animator,null);
     }
 
     private void AddBone(BoneMappingInfo root)
@@ -30,7 +30,7 @@ public class DynamicAvatar : MonoBehaviour
 
     }
 
-    public void Init(GameObject root, Animator animator)
+    public void Init(GameObject root, Animator animator,Avatar avatar)
     {
         this.avatarRoot = root;
         this.animator = animator;
@@ -50,21 +50,22 @@ public class DynamicAvatar : MonoBehaviour
         /// </summary>
         HumanDescription humanDescription = new HumanDescription()
         {
+            upperArmTwist = 0.5f,
+            lowerArmTwist = 0.5f,
+            upperLegTwist = 0.5f,
+            lowerLegTwist = 0.5f,
             armStretch = 0.05f,
+            legStretch = 0.05f,
             feetSpacing = 0f,
             hasTranslationDoF = false,
-            legStretch = 0.05f,
-            lowerArmTwist = 0.5f,
-            lowerLegTwist = 0.5f,
-            upperArmTwist = 0.5f,
-            upperLegTwist = 0.5f,
             skeleton = CreateSkeletonBone(avatarRoot),
             human = CreateHumanBone(avatarRoot),
         };
-
-        Avatar avatar = AvatarBuilder.BuildHumanAvatar(avatarRoot, humanDescription);
-
-        animator.avatar = avatar;
+        if (animator.avatar == null && avatar == null)
+        {
+            avatar = AvatarBuilder.BuildHumanAvatar(avatarRoot, humanDescription);
+            animator.avatar = avatar;
+        }
         animator.enabled = true;
 
     }
@@ -99,15 +100,7 @@ public class DynamicAvatar : MonoBehaviour
     /// </summary>
     public static Dictionary<string, string> HumanSkeletonMap = new Dictionary<string, string>()
     {
-            {"pelvis", "Hips" },
-            {"spine_01", "Spine" },
-            {"spine_02", "Chest"},
-            {"spine_03", "UpperChest" },
-            {"neck_01", "Neck" },
-            {"head", "Head" },
-            { "eye_EyeJoint_L", "LeftEye" },
-            { "eye_EyeJoint_R", "RightEye" },
-            { "mouth_JawJoint_M", "Jaw" },
+
 
     };
 
@@ -124,9 +117,8 @@ public class DynamicAvatar : MonoBehaviour
                 {
                     boneName = avatarTransform.name,
                     humanName = humanName,
-                    limit = new HumanLimit()
+                    limit = new HumanLimit() { useDefaultValues = true }
                 };
-                bone.limit.useDefaultValues = true;
 
                 human.Add(bone);
             }

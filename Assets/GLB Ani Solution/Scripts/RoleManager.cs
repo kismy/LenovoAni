@@ -15,14 +15,15 @@ public class RoleManager : MonoBehaviour
     public static RoleManager instance;
     [SerializeField] string configFileName = "ManSittingDynamicAvatar";
     [SerializeField] RuntimeAnimatorController controller;
+    [SerializeField] Avatar avatar;
     [SerializeField] Transform joint;
     [SerializeField] Text text;
     public Dictionary<EFaceType,SkinnedMeshRenderer> SkinDic=new Dictionary<EFaceType, SkinnedMeshRenderer>();
     void Start()
     {
         instance = this;
-        //LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath+ "/../roleModels/6476e63cc16b82b1e6b9760f.glb", OnFinishAsync);
-        LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath+ "/../roleModels/64d495b4651a0d35000406bc.glb", OnFinishAsync);
+        LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath + "/../roleModels/6476e63cc16b82b1e6b9760f.glb", OnFinishAsync);
+        //LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath+ "/../roleModels/64d495b4651a0d35000406bc.glb", OnFinishAsync);
     }
 
     /// <summary>
@@ -58,7 +59,7 @@ public class RoleManager : MonoBehaviour
         //animator.avatar = manAvatar;
         animator.runtimeAnimatorController = controller;
         DynamicAvatar dynamicAvatar= root.gameObject.AddComponent<DynamicAvatar>();
-        dynamicAvatar.Init(root.gameObject,animator);
+        dynamicAvatar.Init(root.gameObject,animator,avatar);
 
 
         SkeletonModify skeletonModify = root.gameObject.AddComponent<SkeletonModify>();

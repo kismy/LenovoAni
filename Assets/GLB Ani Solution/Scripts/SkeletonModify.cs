@@ -18,6 +18,7 @@ public class SkeletonModify : MonoBehaviour
     [SerializeField] Animator animator;
     [Range(1,10)]
     [SerializeField] float speed = 5f;
+    [SerializeField]
     private string configFileName;
 
     public void Init(string configFileName, Transform joint,Text text,Animator animator)
@@ -85,6 +86,7 @@ public class SkeletonModify : MonoBehaviour
 
     public void LoadCurAnimationModify(string stateName=null)
     {
+       
         if (stateName == null)
             stateName = currentAniState;
         else if (stateName == currentAniState)
@@ -143,7 +145,7 @@ public class SkeletonModify : MonoBehaviour
 
     public void SaveJson()
     {
-        string savePath = Path.Combine(Application.streamingAssetsPath, "SkeletonModifyData", gameObject.name);
+        string savePath = Path.Combine(Application.streamingAssetsPath, "SkeletonModifyData", configFileName);
         if (!Directory.Exists(savePath))
             Directory.CreateDirectory(savePath);
 
@@ -159,7 +161,7 @@ public class SkeletonModify : MonoBehaviour
     {
         AnimatorStateInfo animatorState = animator.GetCurrentAnimatorStateInfo(0);
 
-        string fileFullPath = string.Format(Application.streamingAssetsPath+"/{0}/{1}/{2}", "SkeletonModifyData", gameObject.name, StateName+".json");
+        string fileFullPath = string.Format(Application.streamingAssetsPath+"/{0}/{1}/{2}", "SkeletonModifyData", configFileName, StateName+".json");
         if (!File.Exists(fileFullPath))
         {
             Debug.LogWarning("File Not Find:"+ fileFullPath);
@@ -203,7 +205,7 @@ public class SkeletonModify : MonoBehaviour
     private void LoadAni(string aniState)
     {
         animator.SetTrigger("On"+ aniState);
-        text.text = "当前动画："+ aniState;
+        text.text = "当前动画：" + aniState;
         LoadCurAnimationModify(aniState);
         currentAniState = aniState;
     }
