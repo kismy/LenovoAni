@@ -33,11 +33,12 @@ public class SkeletonModify : MonoBehaviour
     void Start()
     {
         QTween.Extension.mono = this;
-        m_SkeletonModifyData = new SkeletonModifyData() { roleName=gameObject.name,modifies=new List<ModifyData>()};
+        m_SkeletonModifyData = new SkeletonModifyData() { roleName = gameObject.name, modifies = new List<ModifyData>() };
         CreateOffsetJoints_OnRuntime();
         animator.SetTrigger("OnIdleOfSitDown");
         text.text = "µ±Ç°¶¯»­£ºIdleOfSitDown";
         LoadCurAnimationModify("IdleOfSitDown");
+
     }
 
 
