@@ -37,7 +37,7 @@ public class DynamicAvatar : MonoBehaviour
         HumanSkeletonMap.Clear();
         AvatarBoneMappingInfo mapinfo = new AvatarBoneMappingInfo();
         AddBone(mapinfo.Root);
-        string savePath = System.IO.Path.Combine(Application.streamingAssetsPath, "SkeletonModifyData" ,"AvatarBoneMappingInfo.json");
+        string savePath = System.IO.Path.Combine(RoleManager.instance.AniOffsetDataPath,"AvatarBoneMappingInfo.json");
         AvatarBoneMappingInfo.SaveToJson(savePath,mapinfo);
 
         //foreach (var item in skeletonMaps)

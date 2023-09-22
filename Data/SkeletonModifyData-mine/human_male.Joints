@@ -1,0 +1,10 @@
+LeftShoulder=Armature/Hips/Spine/Spine1/Spine2/LeftShoulder
+LeftArm=Armature/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm
+LeftForeArm=Armature/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm
+LeftHand=Armature/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm/LeftForeArm/LeftHand
+
+RightShoulder=Armature/Hips/Spine/Spine1/Spine2/RightShoulder
+RightArm=Armature/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm
+RightForeArm=Armature/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm
+RightHand=Armature/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm/RightForeArm/RightHand
+

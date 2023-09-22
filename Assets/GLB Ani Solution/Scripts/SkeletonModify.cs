@@ -46,7 +46,7 @@ public class SkeletonModify : MonoBehaviour
     {
         OffsetJoints.Clear();
 
-        string[] lines = File.ReadAllLines(Path.Combine(Application.streamingAssetsPath, "SkeletonModifyData", configFileName + ".joints"));
+        string[] lines = File.ReadAllLines(Path.Combine(RoleManager.instance.AniOffsetDataPath,configFileName + ".joints"));
         List<Transform> targets = new List<Transform>();
         foreach (var line in lines)
         {
@@ -146,7 +146,7 @@ public class SkeletonModify : MonoBehaviour
 
     public void SaveJson()
     {
-        string savePath = Path.Combine(Application.streamingAssetsPath, "SkeletonModifyData", configFileName);
+        string savePath = Path.Combine(RoleManager.instance.AniOffsetDataPath, configFileName);
         if (!Directory.Exists(savePath))
             Directory.CreateDirectory(savePath);
 
@@ -162,7 +162,7 @@ public class SkeletonModify : MonoBehaviour
     {
         AnimatorStateInfo animatorState = animator.GetCurrentAnimatorStateInfo(0);
 
-        string fileFullPath = string.Format(Application.streamingAssetsPath+"/{0}/{1}/{2}", "SkeletonModifyData", configFileName, StateName+".json");
+        string fileFullPath =System.IO.Path.Combine(RoleManager.instance.AniOffsetDataPath, configFileName, StateName+".json");
         if (!File.Exists(fileFullPath))
         {
             Debug.LogWarning("File Not Find:"+ fileFullPath);

@@ -9,20 +9,40 @@ public enum EFaceType
     Face,
     Teeth
 }
+public enum RoleType
+{ 
+    A,
+    B,
+    B2
+}
 
 public class RoleManager : MonoBehaviour
 {
+
     public static RoleManager instance;
+    public string AniOffsetDataPath;
     [SerializeField] string configFileName = "ManSittingDynamicAvatar";
+    [SerializeField] RoleType roleType;
     [SerializeField] RuntimeAnimatorController controller;
     [SerializeField] Avatar avatar;
     [SerializeField] Transform joint;
     [SerializeField] Text text;
     public Dictionary<EFaceType,SkinnedMeshRenderer> SkinDic=new Dictionary<EFaceType, SkinnedMeshRenderer>();
-    void Start()
+    private string PLeftShoulder = "Armature/Hips/Spine/Spine1/Spine2/LeftShoulder";
+    private string PLeftArm = "Armature/Hips/Spine/Spine1/Spine2/LeftShoulder/LeftArm";
+    private string PRightShoulder = "Armature/Hips/Spine/Spine1/Spine2/RightShoulder";
+    private string PRightArm = "Armature/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm";
+
+    [SerializeField] bool AdjustJointsBeforeCreateAvatar = false;
+    private void Awake()
     {
         instance = this;
-        LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath + "/../roleModels/6476e63cc16b82b1e6b9760f.glb", OnFinishAsync);
+
+        AniOffsetDataPath=System.IO.Path.Combine(Application.dataPath , "../Data/SkeletonModifyData");
+    }
+    void Start()
+    {
+        LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(string.Format(Application.dataPath+ "/../Data/roleModels/{0}.glb",roleType.ToString()), OnFinishAsync);
         //LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath+ "/../roleModels/64d495b4651a0d35000406bc.glb", OnFinishAsync);
     }
 
@@ -35,9 +55,7 @@ public class RoleManager : MonoBehaviour
     /// <param name="name"></param>
     void OnFinishAsync(GameObject result, AnimationClip[] clip)
     {
-        Transform root= GameObject.Instantiate(joint);
-        root.position = new Vector3(0f,0f,0);
-        root.name = configFileName;
+
         SkinnedMeshRenderer[] renderers = result.transform.GetComponentsInChildren<SkinnedMeshRenderer>();
         foreach (var item in renderers)
         {
@@ -51,8 +69,25 @@ public class RoleManager : MonoBehaviour
             else if (item.gameObject.name.Contains("Teeth"))
                 SkinDic.Add(EFaceType.Teeth, item);
         }
+        Transform root = GameObject.Instantiate(joint);
+        root.position = new Vector3(0f, 0f, 0);
+        root.name = configFileName;
+
         result.transform.parent = root;
         result.transform.localPosition = new Vector3(0,0,0);
+
+        if (AdjustJointsBeforeCreateAvatar)
+        {
+            Transform LeftShoulder = root.Find(PLeftShoulder);
+            Transform LeftArm = root.Find(PLeftArm);
+            Transform RightShoulder = root.Find(PRightShoulder);
+            Transform RightArm = root.Find(PRightArm);
+            LeftShoulder.localRotation = Quaternion.Euler(76.3827591f, 87.2930984f, 179.000076f);
+            LeftArm.localRotation = Quaternion.Euler(345.954071f, 355.431458f, 359.34552f);
+            RightShoulder.localRotation = Quaternion.Euler(78.8968277f, 273.109344f, 181.604721f);
+            RightArm.localRotation = Quaternion.Euler(349.174835f, 4.60694408f, 0.643833816f);
+        }
+
 
         Animator animator= root.gameObject.AddComponent<Animator>();
         animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
