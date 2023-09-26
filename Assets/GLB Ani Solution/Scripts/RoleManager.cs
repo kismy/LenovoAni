@@ -36,7 +36,10 @@ public class RoleManager : MonoBehaviour
     private string PRightShoulder = "Armature/Hips/Spine/Spine1/Spine2/RightShoulder";
     private string PRightArm = "Armature/Hips/Spine/Spine1/Spine2/RightShoulder/RightArm";
 
+    [SerializeField] BlendShapeRetargeting face;
+
     [SerializeField] bool AdjustJointsBeforeCreateAvatar = false;
+    [SerializeField] Vector3 InitPosOffset = Vector3.zero;
     private void Awake()
     {
         instance = this;
@@ -73,11 +76,11 @@ public class RoleManager : MonoBehaviour
                 SkinDic.Add(EFaceType.Teeth, item);
         }
         Transform root = GameObject.Instantiate(joint);
-        root.position = new Vector3(0f, 0f, 0);
         root.name = configFileName;
 
         result.transform.parent = root;
         result.transform.localPosition = new Vector3(0,0,0);
+        root.localPosition = InitPosOffset;
 
         if (AdjustJointsBeforeCreateAvatar)
         {
@@ -85,12 +88,11 @@ public class RoleManager : MonoBehaviour
             Transform LeftArm = root.Find(PLeftArm);
             Transform RightShoulder = root.Find(PRightShoulder);
             Transform RightArm = root.Find(PRightArm);
-            LeftShoulder.localRotation = Quaternion.Euler(76.3827591f, 87.2930984f, 179.000076f);
-            LeftArm.localRotation = Quaternion.Euler(345.954071f, 355.431458f, 359.34552f);
-            RightShoulder.localRotation = Quaternion.Euler(78.8968277f, 273.109344f, 181.604721f);
-            RightArm.localRotation = Quaternion.Euler(349.174835f, 4.60694408f, 0.643833816f);
+            LeftShoulder.localRotation = Quaternion.Euler(76.4f, 87.3f, 179f);
+            LeftArm.localRotation = Quaternion.Euler(346f, 355.4f, 359.3f);
+            RightShoulder.localRotation = Quaternion.Euler(78.9f, 273f, 181.6f);
+            RightArm.localRotation = Quaternion.Euler(349.2f, 4.6f, 0.644f);
         }
-
 
         Animator animator= root.gameObject.AddComponent<Animator>();
         animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
@@ -102,6 +104,8 @@ public class RoleManager : MonoBehaviour
 
         SkeletonModify skeletonModify = root.gameObject.AddComponent<SkeletonModify>();
         skeletonModify.Init(configFileName,joint, text, animator);
+
+        face.Init(SkinDic);
 
     }
 

@@ -243,7 +243,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &81814443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -263,7 +263,9 @@ MonoBehaviour:
   avatar: {fileID: 0}
   joint: {fileID: 908194497}
   text: {fileID: 694058440}
-  AdjustJointsBeforeCreateAvatar: 0
+  face: {fileID: 1104748448}
+  AdjustJointsBeforeCreateAvatar: 1
+  InitPosOffset: {x: 0, y: 0.22, z: 0}
 --- !u!4 &81814444
 Transform:
   m_ObjectHideFlags: 0
@@ -277,6 +279,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 963194228}
+  - {fileID: 305634894}
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -462,6 +465,100 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -4710474407925179927, guid: 54b3a63e7d8a5384eaeedb941f304811, type: 3}
   m_PrefabInstance: {fileID: 426882055}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &305634893
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 305634894}
+  - component: {fileID: 305634895}
+  m_Layer: 0
+  m_Name: StandSpot Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &305634894
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305634893}
+  m_LocalRotation: {x: 0.9341649, y: -0.060371734, z: 0.22989492, w: 0.266157}
+  m_LocalPosition: {x: -1.497, y: 3.31, z: 2.55}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81814444}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!108 &305634895
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 305634893}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 0
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 3
+  m_Range: 4.5
+  m_SpotAngle: 35
+  m_InnerSpotAngle: 3
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 64
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 1
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &320187305
 GameObject:
   m_ObjectHideFlags: 0
@@ -3078,7 +3175,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &963194226
 AudioListener:
   m_ObjectHideFlags: 0
@@ -7488,7 +7585,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2055936872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7503,12 +7600,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AniOffsetDataPath: 
   configFileName: ManStandDynamicAvatar
-  roleType: 2
+  roleType: 3
   controller: {fileID: 9100000, guid: 32ad2d3dd7da8964fbe687d838ce8be7, type: 2}
   avatar: {fileID: 0}
   joint: {fileID: 908194497}
   text: {fileID: 694058440}
+  face: {fileID: 1104748448}
   AdjustJointsBeforeCreateAvatar: 1
+  InitPosOffset: {x: 0, y: 0, z: 0}
 --- !u!4 &2055936873
 Transform:
   m_ObjectHideFlags: 0

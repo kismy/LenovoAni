@@ -1,1 +1,253 @@
-{"roleName":"DynamicAvatar","aniStateName":"Sign","modifies":[{"ModifySkeleton":"LeftShoulder_Offset","LocalPos":{"x":0.0,"y":0.0,"z":0.0},"LocalRotation":{"x":0.0,"y":0.0,"z":5.999992847442627}},{"ModifySkeleton":"LeftArm_Offset","LocalPos":{"x":0.0,"y":0.0,"z":0.0},"LocalRotation":{"x":0.0,"y":0.0,"z":2.999997138977051}},{"ModifySkeleton":"LeftForeArm_Offset","LocalPos":{"x":0.0,"y":0.0,"z":0.0},"LocalRotation":{"x":0.8122734427452087,"y":357.7888488769531,"z":358.551513671875}},{"ModifySkeleton":"LeftHand_Offset","LocalPos":{"x":0.0,"y":0.0,"z":0.0},"LocalRotation":{"x":0.0,"y":0.0,"z":0.0}},{"ModifySkeleton":"RightShoulder_Offset","LocalPos":{"x":0.0,"y":0.0,"z":0.0},"LocalRotation":{"x":0.0,"y":0.0,"z":354.0}},{"ModifySkeleton":"RightArm_Offset","LocalPos":{"x":0.0,"y":0.0,"z":0.0},"LocalRotation":{"x":358.7249755859375,"y":358.0308837890625,"z":356.1550598144531}},{"ModifySkeleton":"RightForeArm_Offset","LocalPos":{"x":0.0,"y":0.0,"z":0.0},"LocalRotation":{"x":1.5204617977142335,"y":5.6239914894104,"z":2.0602338314056398}},{"ModifySkeleton":"RightHand_Offset","LocalPos":{"x":0.0,"y":0.0,"z":0.0},"LocalRotation":{"x":0.0,"y":0.0,"z":0.0}}]}
+{
+    "roleName": "DynamicAvatar",
+    "aniStateName": "Sign",
+    "modifies": [
+        {
+            "ModifySkeleton": "Spine2_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 358.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "Neck_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": -0.014999999664723874,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 352.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "Head_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 10.00000286102295,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftShoulder_Offset",
+            "LocalPos": {
+                "x": 0.014999999664723874,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 2.999997138977051
+            }
+        },
+        {
+            "ModifySkeleton": "LeftArm_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.019999999552965165,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 355.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftForeArm_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.8122736811637878,
+                "y": 357.7888488769531,
+                "z": 358.551513671875
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHand_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHandThumb1_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHandThumb2_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHandThumb3_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHandThumb4_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightShoulder_Offset",
+            "LocalPos": {
+                "x": -0.014999999664723874,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 357.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightArm_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.019999999552965165,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 355.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightForeArm_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 1.5204617977142335,
+                "y": 5.623993396759033,
+                "z": 2.060231924057007
+            }
+        },
+        {
+            "ModifySkeleton": "RightHand_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightHandThumb1_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightHandThumb2_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightHandThumb3_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightHandThumb4_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        }
+    ]
+}
