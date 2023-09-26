@@ -35,10 +35,7 @@ public class SkeletonModify : MonoBehaviour
         QTween.Extension.mono = this;
         m_SkeletonModifyData = new SkeletonModifyData() { roleName = gameObject.name, modifies = new List<ModifyData>() };
         CreateOffsetJoints_OnRuntime();
-        animator.SetTrigger("OnIdleOfSitDown");
-        text.text = "当前动画：IdleOfSitDown";
-        LoadCurAnimationModify("IdleOfSitDown");
-
+        LoadAni("IdleOfSitDown",true);
     }
 
 
@@ -85,7 +82,7 @@ public class SkeletonModify : MonoBehaviour
 
     }
 
-    public void LoadCurAnimationModify(string stateName=null)
+    public void LoadCurAnimationModify(string stateName=null, bool aniQuickChange = false)
     {
        
         if (stateName == null)
@@ -105,7 +102,7 @@ public class SkeletonModify : MonoBehaviour
         {
             foreach (var item in OffsetJoints)
             {
-                ResetOffset(item, m_SkeletonModifyData.modifies);
+                ResetOffset(item, m_SkeletonModifyData.modifies, aniQuickChange);
             }
         }
 
@@ -120,7 +117,7 @@ public class SkeletonModify : MonoBehaviour
         }
     }
 
-    private void ResetOffset(Transform target, List<ModifyData> modifies)
+    private void ResetOffset(Transform target, List<ModifyData> modifies, bool aniQuickChange = false)
     {
        ModifyData data= modifies.Find(item => {
             return item.ModifySkeleton== target.name;
@@ -130,9 +127,18 @@ public class SkeletonModify : MonoBehaviour
         {
             //target.localPosition = data.LocalPos;
             //target.localRotation = Quaternion.Euler(data.LocalRotation);
+            if (aniQuickChange)
+            {
+                target.localPosition = data.LocalPos;
+                target.localRotation =Quaternion.Euler(data.LocalRotation);
+            }
+            else
+            {
+                target.DoLocalPosition(data.LocalPos);
+                target.DoLocalRotation(data.LocalRotation, speed);
+            }
 
-            target.DoLocalPosition(data.LocalPos);
-            target.DoLocalRotation(data.LocalRotation, speed);
+  
         }
         else
         {
@@ -154,7 +160,7 @@ public class SkeletonModify : MonoBehaviour
 
         string fileFullPath = Path.Combine(savePath, currentAniState + ".json");
         //string fileFullPath = Path.Combine(savePath, "IdleOfSitDown.json");
-        File.WriteAllText(fileFullPath, JsonUtility.ToJson(m_SkeletonModifyData));
+        File.WriteAllText(fileFullPath, JsonUtility.ToJson(m_SkeletonModifyData,true));
         Debug.Log("Save Success:"+ fileFullPath);
     }
 
@@ -203,11 +209,11 @@ public class SkeletonModify : MonoBehaviour
             LoadAni("ThumbsDown");
     }
 
-    private void LoadAni(string aniState)
+    private void LoadAni(string aniState,bool aniQuickChange=false)
     {
         animator.SetTrigger("On"+ aniState);
         text.text = "当前动画：" + aniState;
-        LoadCurAnimationModify(aniState);
+        LoadCurAnimationModify(aniState,aniQuickChange);
         currentAniState = aniState;
     }
 }

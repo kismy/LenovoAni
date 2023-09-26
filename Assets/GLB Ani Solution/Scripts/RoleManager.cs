@@ -13,7 +13,10 @@ public enum RoleType
 { 
     A,
     B,
-    B2
+    B2,
+    C,
+    F1,
+    F2
 }
 
 public class RoleManager : MonoBehaviour

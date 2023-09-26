@@ -1,0 +1,253 @@
+{
+    "roleName": "DynamicAvatar",
+    "aniStateName": "IdleOfSitDown",
+    "modifies": [
+        {
+            "ModifySkeleton": "Spine2_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "Neck_Offset",
+            "LocalPos": {
+                "x": -0.0010000000474974514,
+                "y": -0.02500000037252903,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "Head_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftShoulder_Offset",
+            "LocalPos": {
+                "x": 0.029999999329447748,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 5.999992847442627
+            }
+        },
+        {
+            "ModifySkeleton": "LeftArm_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.029999999329447748,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 354.97967529296877,
+                "y": 0.025508739054203035,
+                "z": 359.89752197265627
+            }
+        },
+        {
+            "ModifySkeleton": "LeftForeArm_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHand_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHandThumb1_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHandThumb2_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHandThumb3_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "LeftHandThumb4_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightShoulder_Offset",
+            "LocalPos": {
+                "x": -0.029999999329447748,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 354.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightArm_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.029999999329447748,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 353.6095275878906,
+                "y": 0.02237304113805294,
+                "z": 0.0954563245177269
+            }
+        },
+        {
+            "ModifySkeleton": "RightForeArm_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightHand_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightHandThumb1_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightHandThumb2_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightHandThumb3_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        },
+        {
+            "ModifySkeleton": "RightHandThumb4_Offset",
+            "LocalPos": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            },
+            "LocalRotation": {
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
+            }
+        }
+    ]
+}
