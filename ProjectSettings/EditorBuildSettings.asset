@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/GLB Ani Solution/Scenes/WakeUpFromBackGround.unity
-    guid: 0b0d79b744c8e5544a5ea3a8accfc47b
-  - enabled: 0
-    path: Assets/GLB Ani Solution/Scenes/Sit Down Pose.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    path: Assets/GLB Ani Solution/Scenes/Sit Down Pose Light.unity
+    guid: 85c0d29df08450f458b100fe0c1555b3
   m_configObjects: {}
