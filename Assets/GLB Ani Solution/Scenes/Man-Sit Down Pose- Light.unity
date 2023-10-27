@@ -258,7 +258,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   AniOffsetDataPath: 
   configFileName: ManSittingDynamicAvatar
-  roleType: 2
+  roleType: 5
   controller: {fileID: 9100000, guid: ca66dee9cafb58e428a304bc45b1eeb4, type: 2}
   avatar: {fileID: 0}
   joint: {fileID: 908194497}
