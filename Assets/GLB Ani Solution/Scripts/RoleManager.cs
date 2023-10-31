@@ -21,6 +21,7 @@ public enum RoleType
 
 public class RoleManager : MonoBehaviour
 {
+    [SerializeField] Dropdown dropdown;
 
     public static RoleManager instance;
     public string AniOffsetDataPath;
@@ -47,11 +48,20 @@ public class RoleManager : MonoBehaviour
         instance = this;
 
         AniOffsetDataPath=System.IO.Path.Combine(Application.dataPath , "../Data/SkeletonModifyData");
+        dropdown.onValueChanged.AddListener(OnRoleSwitch);
     }
     void Start()
     {
         LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(string.Format(Application.dataPath+ "/../Data/roleModels/{0}.glb",roleType.ToString()), OnFinishAsync);
         //LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath+ "/../roleModels/64d495b4651a0d35000406bc.glb", OnFinishAsync);
+    }
+    public void OnRoleSwitch(int index)
+    { 
+    
+    }
+    private void OnDestroy()
+    {
+        dropdown.onValueChanged.RemoveListener(OnRoleSwitch);
     }
 
     /// <summary>

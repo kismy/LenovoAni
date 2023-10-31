@@ -197,7 +197,7 @@ public class SkeletonModify : MonoBehaviour
             LoadAni("Pray");
         else if (Input.GetKeyDown(KeyCode.F7))
             LoadAni("OK");
-        else if (Input.GetKeyDown(KeyCode.F8))
+        else if (Input.GetKeyDown(KeyCode.Alpha8)|| Input.GetKeyDown(KeyCode.F8))
             LoadAni("Wave");
         else if (Input.GetKeyDown(KeyCode.F9))
             LoadAni("Think");

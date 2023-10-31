@@ -1,6 +1,6 @@
 {
     "roleName": "DynamicAvatar",
-    "aniStateName": "Think",
+    "aniStateName": "Wave",
     "modifies": [
         {
             "ModifySkeleton": "Spine2_Offset",
@@ -19,11 +19,11 @@
             "ModifySkeleton": "Neck_Offset",
             "LocalPos": {
                 "x": 0.0,
-                "y": 0.0,
+                "y": -0.014999999664723874,
                 "z": 0.0
             },
             "LocalRotation": {
-                "x": 0.0,
+                "x": 352.0,
                 "y": 0.0,
                 "z": 0.0
             }
@@ -36,7 +36,7 @@
                 "z": 0.0
             },
             "LocalRotation": {
-                "x": 0.0,
+                "x": 10.00000286102295,
                 "y": 0.0,
                 "z": 0.0
             }
@@ -44,25 +44,25 @@
         {
             "ModifySkeleton": "LeftShoulder_Offset",
             "LocalPos": {
-                "x": 0.0,
+                "x": 0.014999999664723874,
                 "y": 0.0,
                 "z": 0.0
             },
             "LocalRotation": {
                 "x": 0.0,
                 "y": 0.0,
-                "z": 0.0
+                "z": 2.999997138977051
             }
         },
         {
             "ModifySkeleton": "LeftArm_Offset",
             "LocalPos": {
                 "x": 0.0,
-                "y": 0.009999999776482582,
+                "y": 0.019999999552965165,
                 "z": 0.0
             },
             "LocalRotation": {
-                "x": 354.9999694824219,
+                "x": 355.0,
                 "y": 0.0,
                 "z": 0.0
             }
@@ -148,25 +148,25 @@
         {
             "ModifySkeleton": "RightShoulder_Offset",
             "LocalPos": {
-                "x": 0.0,
+                "x": -0.014999999664723874,
                 "y": 0.0,
                 "z": 0.0
             },
             "LocalRotation": {
                 "x": 0.0,
                 "y": 0.0,
-                "z": 0.0
+                "z": 357.0
             }
         },
         {
             "ModifySkeleton": "RightArm_Offset",
             "LocalPos": {
                 "x": 0.0,
-                "y": 0.009999999776482582,
+                "y": 0.019999999552965165,
                 "z": 0.0
             },
             "LocalRotation": {
-                "x": 0.0,
+                "x": 355.0,
                 "y": 0.0,
                 "z": 0.0
             }
@@ -179,9 +179,9 @@
                 "z": 0.0
             },
             "LocalRotation": {
-                "x": -5.336085351359543e-8,
-                "y": 349.9999694824219,
-                "z": 355.510009765625
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             }
         },
         {
@@ -193,7 +193,7 @@
             },
             "LocalRotation": {
                 "x": 0.0,
-                "y": 344.9999694824219,
+                "y": 0.0,
                 "z": 0.0
             }
         },
@@ -205,9 +205,9 @@
                 "z": 0.0
             },
             "LocalRotation": {
-                "x": 340.0,
-                "y": 335.0,
-                "z": -9.085669034902821e-7
+                "x": 0.0,
+                "y": 0.0,
+                "z": 0.0
             }
         },
         {
