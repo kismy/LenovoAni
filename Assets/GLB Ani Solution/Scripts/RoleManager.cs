@@ -43,6 +43,8 @@ public class RoleManager : MonoBehaviour
     [SerializeField] bool AdjustJointsBeforeCreateAvatar = false;
     [SerializeField] bool isMan = true;
     [SerializeField] Vector3 InitPosOffset = Vector3.zero;
+    [SerializeField] bool modifyOffsetWhenPlayIdleAni = true;
+
     private void Awake()
     {
         instance = this;
@@ -127,7 +129,7 @@ public class RoleManager : MonoBehaviour
 
 
             SkeletonModify skeletonModify = root.gameObject.AddComponent<SkeletonModify>();
-            skeletonModify.Init(configFileName, joint, text, animator);
+            skeletonModify.Init(configFileName, joint, text, animator,modifyOffsetWhenPlayIdleAni);
 
             face.Init(SkinDic);
         }

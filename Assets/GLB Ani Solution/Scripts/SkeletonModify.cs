@@ -21,12 +21,14 @@ public class SkeletonModify : MonoBehaviour
     [SerializeField]
     private string configFileName;
 
-    public void Init(string configFileName, Transform joint,Text text,Animator animator)
+    [SerializeField] bool modifyOffsetWhenPlayIdleAni=true;
+    public void Init(string configFileName, Transform joint,Text text,Animator animator,bool modifyOffsetWhenPlayIdleAni)
     {
         this.configFileName = configFileName;
         this.joint = joint;
         this.text = text;
         this.animator = animator;
+        this.modifyOffsetWhenPlayIdleAni = modifyOffsetWhenPlayIdleAni;
         OffsetJoints = new List<Transform>();
 
     }
@@ -215,5 +217,19 @@ public class SkeletonModify : MonoBehaviour
         text.text = "µ±Ç°¶¯»­£º" + aniState;
         LoadCurAnimationModify(aniState,aniQuickChange);
         currentAniState = aniState;
+        if (modifyOffsetWhenPlayIdleAni&& aniState != "IdleOfSitDown")
+        {
+            StartCoroutine(ResetIdleOffset());
+        }
+    }
+
+    IEnumerator ResetIdleOffset()
+    {
+        yield return null;
+        AnimatorStateInfo stateInfo = animator.GetNextAnimatorStateInfo(0);
+        yield return new WaitForSeconds(stateInfo.length-1.25f);
+        LoadCurAnimationModify("IdleOfSitDown");
+        currentAniState = "IdleOfSitDown";
+
     }
 }
