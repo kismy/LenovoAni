@@ -324,7 +324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &81814443
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8527,7 +8527,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2055936872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8543,7 +8543,7 @@ MonoBehaviour:
   dropdown: {fileID: 1982460203}
   AniOffsetDataPath: 
   configFileName: WomanStandDynamicAvatar
-  roleType: 5
+  roleType: 4
   controller: {fileID: 9100000, guid: 32ad2d3dd7da8964fbe687d838ce8be7, type: 2}
   avatar: {fileID: 0}
   joint: {fileID: 908194497}
