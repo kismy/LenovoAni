@@ -21,6 +21,7 @@ public enum RoleType
 
 public class RoleManager : MonoBehaviour
 {
+    [SerializeField] Dropdown dropdown;
 
     public static RoleManager instance;
     public string AniOffsetDataPath;
@@ -38,18 +39,31 @@ public class RoleManager : MonoBehaviour
 
     [SerializeField] BlendShapeRetargeting face;
 
+    [SerializeField] bool driveByAni = true;
     [SerializeField] bool AdjustJointsBeforeCreateAvatar = false;
+    [SerializeField] bool isMan = true;
     [SerializeField] Vector3 InitPosOffset = Vector3.zero;
+    [SerializeField] bool modifyOffsetWhenPlayIdleAni = true;
+
     private void Awake()
     {
         instance = this;
 
         AniOffsetDataPath=System.IO.Path.Combine(Application.dataPath , "../Data/SkeletonModifyData");
+        dropdown.onValueChanged.AddListener(OnRoleSwitch);
     }
     void Start()
     {
         LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(string.Format(Application.dataPath+ "/../Data/roleModels/{0}.glb",roleType.ToString()), OnFinishAsync);
         //LoadGLB_GLTFUtility.Instance.ImportGLB_GLTFAsync(Application.dataPath+ "/../roleModels/64d495b4651a0d35000406bc.glb", OnFinishAsync);
+    }
+    public void OnRoleSwitch(int index)
+    { 
+    
+    }
+    private void OnDestroy()
+    {
+        dropdown.onValueChanged.RemoveListener(OnRoleSwitch);
     }
 
     /// <summary>
@@ -88,24 +102,37 @@ public class RoleManager : MonoBehaviour
             Transform LeftArm = root.Find(PLeftArm);
             Transform RightShoulder = root.Find(PRightShoulder);
             Transform RightArm = root.Find(PRightArm);
-            LeftShoulder.localRotation = Quaternion.Euler(76.4f, 87.3f, 179f);
-            LeftArm.localRotation = Quaternion.Euler(346f, 355.4f, 359.3f);
-            RightShoulder.localRotation = Quaternion.Euler(78.9f, 273f, 181.6f);
-            RightArm.localRotation = Quaternion.Euler(349.2f, 4.6f, 0.644f);
+            if (isMan)
+            {
+                LeftShoulder.localRotation = Quaternion.Euler(76.4f, 87.3f, 179f);
+                LeftArm.localRotation = Quaternion.Euler(346f, 355.4f, 359.3f);
+                RightShoulder.localRotation = Quaternion.Euler(78.9f, 273f, 181.6f);
+                RightArm.localRotation = Quaternion.Euler(349.2f, 4.6f, 0.644f);
+            }
+            else
+            {
+                LeftShoulder.localRotation = Quaternion.Euler(100, -90, 11);
+                LeftArm.localRotation = Quaternion.Euler(-8, -2f, -12);
+                RightShoulder.localRotation = Quaternion.Euler(100, 90, -11);
+                RightArm.localRotation = Quaternion.Euler(-8, 2f, 12f);
+            }
         }
 
-        Animator animator= root.gameObject.AddComponent<Animator>();
-        animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
-        //animator.avatar = manAvatar;
-        animator.runtimeAnimatorController = controller;
-        DynamicAvatar dynamicAvatar= root.gameObject.AddComponent<DynamicAvatar>();
-        dynamicAvatar.Init(root.gameObject,animator,avatar);
+        if (driveByAni)
+        {
+            Animator animator = root.gameObject.AddComponent<Animator>();
+            animator.cullingMode = AnimatorCullingMode.CullUpdateTransforms;
+            //animator.avatar = manAvatar;
+            animator.runtimeAnimatorController = controller;
+            DynamicAvatar dynamicAvatar = root.gameObject.AddComponent<DynamicAvatar>();
+            dynamicAvatar.Init(root.gameObject, animator, avatar);
 
 
-        SkeletonModify skeletonModify = root.gameObject.AddComponent<SkeletonModify>();
-        skeletonModify.Init(configFileName,joint, text, animator);
+            SkeletonModify skeletonModify = root.gameObject.AddComponent<SkeletonModify>();
+            skeletonModify.Init(configFileName, joint, text, animator,modifyOffsetWhenPlayIdleAni);
 
-        face.Init(SkinDic);
+            face.Init(SkinDic);
+        }
 
     }
 

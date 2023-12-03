@@ -1,4 +1,6 @@
 /Library
+/Temp
+/Build
 /.vs
 /Logs
 /obj
