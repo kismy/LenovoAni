@@ -177,6 +177,7 @@ MonoBehaviour:
   animator: {fileID: 9183342}
   speed: 5
   configFileName: ManSittingDynamicAvatar
+  modifyOffsetWhenPlayIdleAni: 1
 --- !u!114 &9183341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +257,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa28813e7a30dd429ce87fee40ae168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropdown: {fileID: 0}
   AniOffsetDataPath: 
   configFileName: ManSittingDynamicAvatar
   roleType: 2
@@ -263,7 +265,12 @@ MonoBehaviour:
   avatar: {fileID: 0}
   joint: {fileID: 908194497}
   text: {fileID: 694058440}
+  face: {fileID: 0}
+  driveByAni: 1
   AdjustJointsBeforeCreateAvatar: 0
+  isMan: 1
+  InitPosOffset: {x: 0, y: 0, z: 0}
+  modifyOffsetWhenPlayIdleAni: 1
 --- !u!4 &81814444
 Transform:
   m_ObjectHideFlags: 0
@@ -2426,6 +2433,7 @@ MonoBehaviour:
   animator: {fileID: 758283159}
   speed: 5
   configFileName: ManStandDynamicAvatar
+  modifyOffsetWhenPlayIdleAni: 1
 --- !u!114 &758283158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3340,7 +3348,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1104748446
 Transform:
   m_ObjectHideFlags: 0
@@ -3456,6 +3464,7 @@ MonoBehaviour:
   animator: {fileID: 1169494248}
   speed: 5
   configFileName: ManStandDynamicAvatar
+  modifyOffsetWhenPlayIdleAni: 1
 --- !u!114 &1169494247
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3601,6 +3610,7 @@ MonoBehaviour:
   animator: {fileID: 1213806572}
   speed: 5
   configFileName: ManStandDynamicAvatar
+  modifyOffsetWhenPlayIdleAni: 1
 --- !u!4 &1215444521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 468911920663188618, guid: 54b3a63e7d8a5384eaeedb941f304811, type: 3}
@@ -4219,6 +4229,7 @@ MonoBehaviour:
   animator: {fileID: 1261574473}
   speed: 5
   configFileName: ManSittingDynamicAvatar
+  modifyOffsetWhenPlayIdleAni: 1
 --- !u!114 &1261574472
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4308,6 +4319,7 @@ MonoBehaviour:
   animator: {fileID: 1263206624}
   speed: 5
   configFileName: ManSittingDynamicAvatar
+  modifyOffsetWhenPlayIdleAni: 1
 --- !u!114 &1263206623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7407,6 +7419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7aa28813e7a30dd429ce87fee40ae168, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dropdown: {fileID: 0}
   AniOffsetDataPath: 
   configFileName: ManStandDynamicAvatar
   roleType: 1
@@ -7414,7 +7427,12 @@ MonoBehaviour:
   avatar: {fileID: 0}
   joint: {fileID: 908194497}
   text: {fileID: 694058440}
+  face: {fileID: 0}
+  driveByAni: 1
   AdjustJointsBeforeCreateAvatar: 1
+  isMan: 1
+  InitPosOffset: {x: 0, y: 0, z: 0}
+  modifyOffsetWhenPlayIdleAni: 1
 --- !u!4 &2055936873
 Transform:
   m_ObjectHideFlags: 0
@@ -8022,6 +8040,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652316569634}
   - component: {fileID: 919132148399131289}
+  - component: {fileID: 919132148399131290}
   m_Layer: 0
   m_Name: MySlate_1
   m_TagString: Untagged
@@ -8049,6 +8068,51 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &919132148399131290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148399131288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9cac3579617c4594f8e25ce92de97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 919132148399131289}
+  UseLiveLinkFace: 0
+  Original: {fileID: 500969853589554899}
+  Targets:
+  - {fileID: 953381466}
+  - {fileID: 1353213522}
+  - {fileID: 813084945}
+  - {fileID: 1543830777}
+  faceAniTimeDelay:
+  - Anistate: IdleOfSitDown
+    Delay: 0
+  - Anistate: ThumbsUp
+    Delay: 0
+  - Anistate: HandClap
+    Delay: 0
+  - Anistate: Sign
+    Delay: 0
+  - Anistate: Cheer
+    Delay: 0
+  - Anistate: Pray
+    Delay: 0
+  - Anistate: OK
+    Delay: 0
+  - Anistate: Wave
+    Delay: 0
+  - Anistate: Think
+    Delay: 0
+  - Anistate: Yean
+    Delay: 0
+  - Anistate: Yes
+    Delay: 0
+  - Anistate: ThumbsDown
+    Delay: 0
 --- !u!137 &1056938440707552455
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

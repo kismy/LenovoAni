@@ -8543,7 +8543,7 @@ MonoBehaviour:
   dropdown: {fileID: 1982460203}
   AniOffsetDataPath: 
   configFileName: WomanStandDynamicAvatar
-  roleType: 4
+  roleType: 5
   controller: {fileID: 9100000, guid: 32ad2d3dd7da8964fbe687d838ce8be7, type: 2}
   avatar: {fileID: 0}
   joint: {fileID: 908194497}
@@ -8551,7 +8551,7 @@ MonoBehaviour:
   face: {fileID: 1104748448}
   driveByAni: 1
   AdjustJointsBeforeCreateAvatar: 1
-  isMan: 1
+  isMan: 0
   InitPosOffset: {x: 0, y: 0, z: 0}
   modifyOffsetWhenPlayIdleAni: 0
 --- !u!4 &2055936873
