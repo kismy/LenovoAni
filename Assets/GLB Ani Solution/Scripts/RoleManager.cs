@@ -28,7 +28,6 @@ public class RoleManager : MonoBehaviour
     [SerializeField] string configFileName = "ManSittingDynamicAvatar";
     [SerializeField] RoleType roleType;
     [SerializeField] RuntimeAnimatorController controller;
-    [SerializeField] Avatar avatar;
     [SerializeField] Transform joint;
     [SerializeField] Text text;
     public Dictionary<EFaceType,SkinnedMeshRenderer> SkinDic=new Dictionary<EFaceType, SkinnedMeshRenderer>();
@@ -125,7 +124,7 @@ public class RoleManager : MonoBehaviour
             //animator.avatar = manAvatar;
             animator.runtimeAnimatorController = controller;
             DynamicAvatar dynamicAvatar = root.gameObject.AddComponent<DynamicAvatar>();
-            dynamicAvatar.Init(root.gameObject, animator, avatar);
+            dynamicAvatar.Init(root.gameObject, animator);
 
 
             SkeletonModify skeletonModify = root.gameObject.AddComponent<SkeletonModify>();

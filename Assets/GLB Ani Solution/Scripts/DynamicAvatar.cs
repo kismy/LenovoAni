@@ -13,7 +13,7 @@ public class DynamicAvatar : MonoBehaviour
     void Start()
     {
         if(autoInit)
-            Init(avatarRoot, animator,null);
+            Init(avatarRoot, animator);
     }
 
     private void AddBone(BoneMappingInfo root)
@@ -30,15 +30,15 @@ public class DynamicAvatar : MonoBehaviour
 
     }
 
-    public void Init(GameObject root, Animator animator,Avatar avatar)
+    public void Init(GameObject root, Animator animator)
     {
         this.avatarRoot = root;
         this.animator = animator;
         HumanSkeletonMap.Clear();
         AvatarBoneMappingInfo mapinfo = new AvatarBoneMappingInfo();
         AddBone(mapinfo.Root);
-        string savePath = System.IO.Path.Combine(RoleManager.instance.AniOffsetDataPath,"AvatarBoneMappingInfo.json");
-        AvatarBoneMappingInfo.SaveToJson(savePath,mapinfo);
+        //string savePath = System.IO.Path.Combine(RoleManager.instance.AniOffsetDataPath,"AvatarBoneMappingInfo.json");
+        //AvatarBoneMappingInfo.SaveToJson(savePath,mapinfo);
 
         //foreach (var item in skeletonMaps)
         //{
@@ -61,11 +61,8 @@ public class DynamicAvatar : MonoBehaviour
             skeleton = CreateSkeletonBone(avatarRoot),
             human = CreateHumanBone(avatarRoot),
         };
-        if (animator.avatar == null && avatar == null)
-        {
-            avatar = AvatarBuilder.BuildHumanAvatar(avatarRoot, humanDescription);
-            animator.avatar = avatar;
-        }
+        Avatar avatar = AvatarBuilder.BuildHumanAvatar(avatarRoot, humanDescription);
+        animator.avatar = avatar;
         animator.enabled = true;
 
     }
