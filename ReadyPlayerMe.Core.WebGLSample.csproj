@@ -747,12 +747,6 @@
     <Reference Include="System.Xml.XPath.XDocument">
       <HintPath>D:\Program Files\Unity\Hub\Editor\2021.3.16f1c1\Editor\Data\UnityReferenceAssemblies\unity-4.8-api\Facades\System.Xml.XPath.XDocument.dll</HintPath>
     </Reference>
-    <Reference Include="ReadyPlayerMe.Core">
-      <HintPath>Library\ScriptAssemblies\ReadyPlayerMe.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="ReadyPlayerMe.WebView">
-      <HintPath>Library\ScriptAssemblies\ReadyPlayerMe.WebView.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor.UI">
       <HintPath>Library\ScriptAssemblies\UnityEditor.UI.dll</HintPath>
     </Reference>
@@ -761,6 +755,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="ReadyPlayerMe.Core.csproj">
+      <Project>{BC16F2AC-DE4D-02D7-1622-0302B0515E94}</Project>
+      <Name>ReadyPlayerMe.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="ReadyPlayerMe.WebView.csproj">
+      <Project>{53347186-C415-4647-EDA1-54114167E800}</Project>
+      <Name>ReadyPlayerMe.WebView</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

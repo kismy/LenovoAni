@@ -58,7 +58,7 @@ public class BlendShapeRetargeting : MonoBehaviour
             }
             else
             {
-                if (Targets == null || Targets.Length <= 0)
+                if (Targets == null || Targets.Length <= 0|| Targets[0].sharedMesh==null)
                     return;
                 for (int i = 0; i < Targets[0].sharedMesh.blendShapeCount; i++)
                 {

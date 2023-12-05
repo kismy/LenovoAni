@@ -21,8 +21,6 @@ public enum RoleType
 
 public class RoleManager : MonoBehaviour
 {
-    [SerializeField] Dropdown dropdown;
-
     public static RoleManager instance;
     public string AniOffsetDataPath;
     [SerializeField] string configFileName = "ManSittingDynamicAvatar";
@@ -49,7 +47,6 @@ public class RoleManager : MonoBehaviour
         instance = this;
 
         AniOffsetDataPath=System.IO.Path.Combine(Application.dataPath , "../Data/SkeletonModifyData");
-        dropdown.onValueChanged.AddListener(OnRoleSwitch);
     }
     void Start()
     {
@@ -59,10 +56,6 @@ public class RoleManager : MonoBehaviour
     public void OnRoleSwitch(int index)
     { 
     
-    }
-    private void OnDestroy()
-    {
-        dropdown.onValueChanged.RemoveListener(OnRoleSwitch);
     }
 
     /// <summary>
